@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Home from './views/Home';
 import Player from './views/players/Player';
+import PlayerIndex from './views/players/PlayerIndex';
 import GreatestPlayers from './views/players/GreatestPlayers';
 import Team from './views/teams/Team';
 import GreatestTeams from './views/teams/GreatestTeams';
@@ -23,6 +24,8 @@ function App() {
         <Route exact path='/' component={Home} />
         {/* PLAYER */}
         <Route exact path='/players/:playerID' component={Player} />
+        {/* PLAYER INDEX */}
+        <Route exact path='/players' component={PlayerIndex} />
         {/* TEAM */}
         <Route exact path='/teams/:teamID/:year' component={Team} />
         {/* FRANCHISE INDEX */}
@@ -40,7 +43,7 @@ function App() {
         {/* SEASON RS */}
         <Route
           exact
-          path='/seasons/regular/:league/:year'
+          path='/seasons/regularseason/:league/:year'
           component={RegularSeason}
         />
         {/* SEASON PLAYOFF */}
