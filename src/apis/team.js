@@ -1,6 +1,18 @@
 import axios from 'axios';
 import { baseUrl } from './base';
 
+// Get player records for each team season
+export const fetchTeamRecord = async (franchiseCode, year) => {
+  try {
+    const response = await axios.get(
+      `${baseUrl}/seasons/teams/${franchiseCode}/${year}`
+    );
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
+
 // Get franchise code from team abbreviation
 export const fetchFranchiseCode = async (teamAbbrev) => {
   try {
