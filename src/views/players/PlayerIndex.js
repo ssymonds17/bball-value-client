@@ -20,7 +20,8 @@ export default function PlayerIndex() {
   }, []);
 
   useEffect(() => {
-    setVisiblePlayers(playerSearch(playerList, userInput));
+    const newList = playerSearch(playerList, userInput);
+    setVisiblePlayers(newList);
   }, [userInput]);
 
   return (
