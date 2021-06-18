@@ -41,6 +41,7 @@ export default function Overall() {
                 <th>Rank</th>
                 <th>Name</th>
                 <th>Value</th>
+                <th>Team</th>
                 <th>Age</th>
                 <th>Pos</th>
                 <th>Score</th>
@@ -62,6 +63,7 @@ export default function Overall() {
                     <td>{(rank += 1)}</td>
                     <td>{player.player_name}</td>
                     <td>{Number(player.season_value).toFixed(2)}</td>
+                    <td>{player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}</td>
                     <td>{player.rs_age}</td>
                     <td>{player.rs_pos}</td>
                     <td>{Number(player.rs_score).toFixed(2)}</td>
