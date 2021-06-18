@@ -2,11 +2,21 @@ import axios from 'axios';
 import { baseUrl } from './base';
 
 // Get player records for each team season
-export const fetchTeamRecord = async (franchiseCode, year) => {
+export const fetchTeamPlayers = async (franchiseCode, year) => {
   try {
     const response = await axios.get(
       `${baseUrl}/seasons/teams/${franchiseCode}/${year}`
     );
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
+
+// Get team data (team name, record etc.) by ID and year
+export const fetchTeamData = async (teamAbbrev, year) => {
+  try {
+    const response = await axios.get(`${baseUrl}/teams/${teamAbbrev}/${year}`);
     return response.data;
   } catch (err) {
     throw err.response.data;
@@ -24,7 +34,7 @@ export const fetchFranchiseCode = async (teamAbbrev) => {
 };
 
 // Get list of all team seasons by franchise code
-export const fetchTeamSeasons = async (franchiseCode) => {
+export const fetchFranchiseSeasons = async (franchiseCode) => {
   try {
     const response = await axios.get(`${baseUrl}/teams/${franchiseCode}`);
     return response.data;

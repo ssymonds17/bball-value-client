@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchFranchiseCode, fetchTeamSeasons } from '../../apis/team';
+import { fetchFranchiseCode, fetchFranchiseSeasons } from '../../apis/team';
 
 export default function TeamIndex() {
   const [teamSeasons, setTeamSeasons] = useState([]);
@@ -7,7 +7,7 @@ export default function TeamIndex() {
 
   const loadTeamSeasons = async (teamAbbrev) => {
     const franchise = await fetchFranchiseCode(teamAbbrev);
-    const seasons = await fetchTeamSeasons(franchise[0].franchise_code);
+    const seasons = await fetchFranchiseSeasons(franchise[0].franchise_code);
     setTeamSeasons(seasons);
     setIsLoading(false);
   };
