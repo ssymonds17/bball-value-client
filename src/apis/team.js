@@ -1,6 +1,16 @@
 import axios from 'axios';
 import { baseUrl } from './base';
 
+// Get franchise code from team abbreviation
+export const fetchFranchiseCode = async (teamAbbrev) => {
+  try {
+    const response = await axios.get(`${baseUrl}/franchiseindex/${teamAbbrev}`);
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
+
 // Get list of all team seasons by franchise code
 export const fetchTeamSeasons = async (franchiseCode) => {
   try {
