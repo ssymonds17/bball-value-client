@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchGreatestPlayers } from '../../apis/player';
 
 export default function GreatestPlayers() {
@@ -34,8 +35,8 @@ export default function GreatestPlayers() {
                 <th>Value</th>
                 <th>Total</th>
                 <th>Peak 3</th>
-                <th>Consec. 5</th>
-                <th>Avg. 82</th>
+                <th>Peak 5</th>
+                <th>Season Avg.</th>
                 <th>Years</th>
               </tr>
             </thead>
@@ -44,7 +45,11 @@ export default function GreatestPlayers() {
                 return (
                   <tr key={player.player_id}>
                     <td>{player.rank}</td>
-                    <td>{player.full_name}</td>
+                    <td>
+                      <Link to={`/players/${player.player_id}`}>
+                        {player.full_name}
+                      </Link>
+                    </td>
                     <td>{Number(player.value).toFixed(2)}</td>
                     <td>{Number(player.total).toFixed(2)}</td>
                     <td>{Number(player.peak_3).toFixed(2)}</td>
