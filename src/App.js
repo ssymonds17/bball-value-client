@@ -15,6 +15,7 @@ import SeasonIndex from './views/seasons/SeasonIndex';
 import GreatestOverall from './views/greatest-seasons/GreatestOverall';
 import GreatestRS from './views/greatest-seasons/GreatestRS';
 import GreatestPlayoffs from './views/greatest-seasons/GreatestPlayoffs';
+import NotFound from './views/NotFound';
 
 function App() {
   return (
@@ -74,6 +75,7 @@ function App() {
           path='/rankings/seasons/playoffs'
           component={GreatestPlayoffs}
         />
+        <Route component={NotFound} />
       </Switch>
     </React.Fragment>
   );
