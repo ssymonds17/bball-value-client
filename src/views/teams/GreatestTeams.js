@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchGreatestTeams } from '../../apis/team';
 
 export default function GreatestTeams() {
@@ -31,7 +32,6 @@ export default function GreatestTeams() {
                 <th>Rank</th>
                 <th>Team</th>
                 <th>Year</th>
-                <th>League</th>
                 <th>Total</th>
                 <th>Tm Record</th>
                 <th>Tm Result</th>
@@ -42,9 +42,16 @@ export default function GreatestTeams() {
                 return (
                   <tr key={team.team + team.year}>
                     <td>{team.rank}</td>
-                    <td>{team.team}</td>
-                    <td>{team.year}</td>
-                    <td>{team.league}</td>
+                    <td>
+                      <Link to={`/teams/${team.team}/${team.year}`}>
+                        {team.team}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/seasons/overall/${team.league}/${team.year}`}>
+                        {team.year}
+                      </Link>
+                    </td>
                     <td>{Number(team.total).toFixed(2)}</td>
                     <td>{team.record}</td>
                     <td>{team.result}</td>
