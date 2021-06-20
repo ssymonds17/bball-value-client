@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchPlayerList } from '../../apis/player';
 import { playerSearch } from '../../helpers/playerSearch';
 
@@ -28,7 +29,6 @@ export default function PlayerIndex() {
     <div>
       {isLoading && (
         <div>
-          <h1>Player Index</h1>
           <h2>Loading....</h2>
         </div>
       )}
@@ -54,7 +54,11 @@ export default function PlayerIndex() {
               {visiblePlayers.map((player) => {
                 return (
                   <tr key={player.player_id}>
-                    <td>{player.full_name}</td>
+                    <td>
+                      <Link to={`/players/${player.player_id}`}>
+                        {player.full_name}
+                      </Link>
+                    </td>
                     <td>{player.years.slice(0, 4)}</td>
                     <td>{player.years.slice(5)}</td>
                   </tr>
