@@ -107,7 +107,11 @@ export default function Team() {
                   {playersPO.map((player) => {
                     return (
                       <tr key={player.player_id}>
-                        <td>{player.player_name}</td>
+                        <td>
+                          <Link to={`/players/${player.player_id}`}>
+                            {player.player_name}
+                          </Link>
+                        </td>
                         <td>{Number(player.po_score).toFixed(2)}</td>
                         <td>
                           <Link
