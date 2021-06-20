@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   fetchCurrentFranchises,
   fetchDefunctFranchises
@@ -49,7 +50,11 @@ export default function FranchiseIndex() {
               {currentFranchises.map((franchise) => {
                 return (
                   <tr key={franchise.franchise_code}>
-                    <td>{franchise.franchise}</td>
+                    <td>
+                      <Link to={`/teams/${franchise.franchise_code}`}>
+                        {franchise.franchise}
+                      </Link>
+                    </td>
                     <td>{franchise.first_year}</td>
                     <td>{franchise.last_year}</td>
                   </tr>
@@ -74,7 +79,11 @@ export default function FranchiseIndex() {
               {defunctFranchises.map((franchise) => {
                 return (
                   <tr key={franchise.franchise_code}>
-                    <td>{franchise.franchise}</td>
+                    <td>
+                      <Link to={`/teams/${franchise.franchise_code}`}>
+                        {franchise.franchise}
+                      </Link>
+                    </td>
                     <td>{franchise.first_year}</td>
                     <td>{franchise.last_year}</td>
                   </tr>
