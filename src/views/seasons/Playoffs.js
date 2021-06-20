@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchPlayoffs } from '../../apis/season';
 import { extractLeague, extractYear } from '../../helpers/season';
 
@@ -53,9 +54,17 @@ export default function Playoffs() {
                 return (
                   <tr key={player.player_id + player.rs_tm}>
                     <td>{(rank += 1)}</td>
-                    <td>{player.player_name}</td>
+                    <td>
+                      <Link to={`/players/${player.player_id}`}>
+                        {player.player_name}
+                      </Link>
+                    </td>
                     <td>{Number(player.po_score).toFixed(2)}</td>
-                    <td>{player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}</td>
+                    <td>
+                      <Link to={`/teams/${player.po_tm}/${player.year}`}>
+                        {player.po_tm}
+                      </Link>
+                    </td>
                     <td>{player.rs_age}</td>
                     <td>{player.rs_pos}</td>
                     <td>{player.po_g}</td>
