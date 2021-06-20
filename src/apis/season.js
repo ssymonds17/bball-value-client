@@ -25,6 +25,18 @@ export const fetchRegularSeason = async (league, year) => {
   }
 };
 
+// Get list of all player records for particular season sorted by po score
+export const fetchPlayoffs = async (league, year) => {
+  try {
+    const response = await axios.get(
+      `${baseUrl}/seasons/playoffs/${league}/${year}`
+    );
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
+
 // Get list of all seasons including champions and MVPs
 export const fetchSeasonIndex = async () => {
   try {
