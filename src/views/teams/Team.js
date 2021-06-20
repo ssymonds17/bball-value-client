@@ -10,7 +10,8 @@ export default function Team() {
   const [playersRS, setPlayersRS] = useState([]);
   const [playersPO, setPlayersPO] = useState([]);
   const [team, setTeam] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [teamYear, setTeamYear] = useState(null);
+  const [teamName, setTeamName] = useState(null);
 
   const loadTeamRecord = async (teamAbbrev, year) => {
     const newTeam = await fetchTeamData(teamAbbrev, year);
@@ -18,10 +19,11 @@ export default function Team() {
     const teamPlayers = await fetchTeamPlayers(franchiseCode, year);
     const rsPlayers = sanitizeTeamPlayers(teamPlayers, 'rs');
     const poPlayers = sanitizeTeamPlayers(teamPlayers, 'po');
+    setTeamYear(newTeam[0].year);
+    setTeamName(newTeam[0].team_full);
     setPlayersRS(rsPlayers);
     setPlayersPO(poPlayers);
     setTeam(newTeam);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -32,15 +34,15 @@ export default function Team() {
 
   return (
     <div>
-      {isLoading && (
+      {!team && (
         <div>
           <h2>Loading....</h2>
         </div>
       )}
-      {!isLoading && team && (
+      {team && (
         <div>
           <h1>
-            {team[0].year} {team[0].team_full}
+            {teamYear} {teamName}
           </h1>
           <h2>Regular Season</h2>
           <table>
@@ -61,7 +63,7 @@ export default function Team() {
                 return (
                   <tr key={player.player_id}>
                     <td>{player.player_name}</td>
-                    <td>{player.rs_score}</td>
+                    <td>{Number(player.rs_score).toFixed(2)}</td>
                     <td>{player.league}</td>
                     <td>{player.rs_age}</td>
                     <td>{player.rs_pos}</td>
@@ -95,7 +97,7 @@ export default function Team() {
                     return (
                       <tr key={player.player_id}>
                         <td>{player.player_name}</td>
-                        <td>{player.po_score}</td>
+                        <td>{Number(player.po_score).toFixed(2)}</td>
                         <td>{player.league}</td>
                         <td>{player.po_age}</td>
                         <td>{player.po_pos}</td>

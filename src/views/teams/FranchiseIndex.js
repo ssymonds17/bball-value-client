@@ -28,8 +28,12 @@ export default function FranchiseIndex() {
 
   return (
     <div>
-      <h1>Franchise Index</h1>
-      {isCurrentLoading && isDefunctLoading && <div>Loading....</div>}
+      {isCurrentLoading && isDefunctLoading && (
+        <div>
+          <h1>Franchise Index</h1>
+          <h2>Loading....</h2>
+        </div>
+      )}
       {!isCurrentLoading && (
         <div>
           <h1>Current Franchises</h1>

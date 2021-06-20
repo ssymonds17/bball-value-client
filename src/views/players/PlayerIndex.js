@@ -26,10 +26,15 @@ export default function PlayerIndex() {
 
   return (
     <div>
-      <h1>Player Index</h1>
-      {isLoading && <div>Loading....</div>}
-      {!isLoading && (
+      {isLoading && (
         <div>
+          <h1>Player Index</h1>
+          <h2>Loading....</h2>
+        </div>
+      )}
+      {!isLoading && visiblePlayers && (
+        <div>
+          <h1>Player Index</h1>
           <label htmlFor='playerSearch'>Search for player: </label>
           <input
             type='text'

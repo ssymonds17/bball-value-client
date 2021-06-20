@@ -25,6 +25,7 @@ export default function GreatestPlayers() {
       )}
       {!isLoading && greatestPlayers && (
         <div>
+          <h1>Greatest Players All Time</h1>
           <table>
             <thead>
               <tr>

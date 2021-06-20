@@ -3,12 +3,10 @@ import { fetchSeasonIndex } from '../../apis/season';
 
 export default function SeasonIndex() {
   const [seasonsData, setSeasonsData] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   const loadSeasonIndex = async (playerID) => {
     const index = await fetchSeasonIndex(playerID);
     setSeasonsData(index);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -17,12 +15,12 @@ export default function SeasonIndex() {
 
   return (
     <div>
-      {isLoading && (
+      {!seasonsData && (
         <div>
           <h2>Loading....</h2>
         </div>
       )}
-      {!isLoading && seasonsData && (
+      {seasonsData && (
         <div>
           <h1>Seasons Index</h1>
           <table>

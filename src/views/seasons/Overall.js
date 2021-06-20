@@ -6,13 +6,11 @@ export default function Overall() {
   const [seasonData, setSeasonData] = useState(null);
   const [thisLeague, setThisLeague] = useState(null);
   const [thisYear, setThisYear] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   let rank = 0;
 
   const loadOverallSeason = async (league, year) => {
     const season = await fetchOverallSeason(league, year);
     setSeasonData(season);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -25,12 +23,12 @@ export default function Overall() {
 
   return (
     <div>
-      {isLoading && (
+      {!seasonData && (
         <div>
           <h2>Loading....</h2>
         </div>
       )}
-      {!isLoading && seasonData && (
+      {seasonData && (
         <div>
           <h1>
             {thisLeague} {thisYear} Overall Season Statistics

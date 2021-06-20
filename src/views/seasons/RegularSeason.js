@@ -6,13 +6,11 @@ export default function RegularSeason() {
   const [seasonData, setSeasonData] = useState(null);
   const [thisLeague, setThisLeague] = useState(null);
   const [thisYear, setThisYear] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   let rank = 0;
 
   const loadRegularSeason = async (league, year) => {
     const season = await fetchRegularSeason(league, year);
     setSeasonData(season);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -25,12 +23,12 @@ export default function RegularSeason() {
 
   return (
     <div>
-      {isLoading && (
+      {!seasonData && (
         <div>
           <h2>Loading....</h2>
         </div>
       )}
-      {!isLoading && seasonData && (
+      {seasonData && (
         <div>
           <h1>
             {thisLeague} {thisYear} Regular Season Statistics

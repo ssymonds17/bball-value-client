@@ -12,7 +12,6 @@ export default function Player() {
   const [overallTotal, setOverallTotal] = useState(null);
   const [rsTotal, setRSTotal] = useState(null);
   const [poTotal, setPOTotal] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
 
   const loadPlayerRecord = async (playerID) => {
     const newPlayer = await fetchPlayerData(playerID);
@@ -23,7 +22,6 @@ export default function Player() {
     setPOTotal(calculateTotals(newPlayer, 'po'));
     setPlayerRS(rsSeasons);
     setPlayerPO(poSeasons);
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -33,12 +31,12 @@ export default function Player() {
 
   return (
     <div>
-      {isLoading && (
+      {!playerRS && !playerPO && (
         <div>
           <h2>Loading....</h2>
         </div>
       )}
-      {!isLoading && playerRS && playerPO && (
+      {playerRS && playerPO && (
         <div>
           <h1>{playerRS[0].player_name}</h1>
           <p>Overall: {overallTotal}</p>

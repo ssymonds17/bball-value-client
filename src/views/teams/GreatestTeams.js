@@ -19,12 +19,12 @@ export default function GreatestTeams() {
     <div>
       {isLoading && (
         <div>
-          <h1>Greatest Teams All Time</h1>
           <h2>Loading....</h2>
         </div>
       )}
       {!isLoading && greatestTeams && (
         <div>
+          <h1>Greatest Teams All Time</h1>
           <table>
             <thead>
               <tr>

@@ -3,13 +3,13 @@ import { fetchFranchiseCode, fetchFranchiseSeasons } from '../../apis/team';
 
 export default function TeamIndex() {
   const [teamSeasons, setTeamSeasons] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [franchiseName, setFranchiseName] = useState([]);
 
   const loadTeamSeasons = async (teamAbbrev) => {
     const franchise = await fetchFranchiseCode(teamAbbrev);
     const seasons = await fetchFranchiseSeasons(franchise[0].franchise_code);
+    setFranchiseName(franchise[0].team_name);
     setTeamSeasons(seasons);
-    setIsLoading(false);
   };
 
   const extractFranchiseCode = () => {
@@ -24,15 +24,14 @@ export default function TeamIndex() {
 
   return (
     <div>
-      {isLoading && (
+      {!teamSeasons && (
         <div>
-          <h1>Franchise Index</h1>
           <h2>Loading....</h2>
         </div>
       )}
-      {!isLoading && (
+      {teamSeasons && (
         <div>
-          <h1>Franchise Index</h1>
+          <h1>{franchiseName} Franchise Index</h1>
           <table>
             <thead>
               <tr>
