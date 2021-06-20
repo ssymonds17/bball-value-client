@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchPlayerData } from '../../apis/player';
 import {
   extractPlayerID,
@@ -9,6 +10,7 @@ import {
 export default function Player() {
   const [playerRS, setPlayerRS] = useState(null);
   const [playerPO, setPlayerPO] = useState(null);
+  const [playerName, setPlayerName] = useState(null);
   const [overallTotal, setOverallTotal] = useState(null);
   const [rsTotal, setRSTotal] = useState(null);
   const [poTotal, setPOTotal] = useState(null);
@@ -17,6 +19,7 @@ export default function Player() {
     const newPlayer = await fetchPlayerData(playerID);
     const rsSeasons = filterSeasons(newPlayer, 'rs');
     const poSeasons = filterSeasons(newPlayer, 'po');
+    setPlayerName(rsSeasons[0].player_name);
     setOverallTotal(calculateTotals(newPlayer));
     setRSTotal(calculateTotals(newPlayer, 'rs'));
     setPOTotal(calculateTotals(newPlayer, 'po'));
@@ -38,7 +41,7 @@ export default function Player() {
       )}
       {playerRS && playerPO && (
         <div>
-          <h1>{playerRS[0].player_name}</h1>
+          <h1>{playerName}</h1>
           <p>Overall: {overallTotal}</p>
           <p>Regular Season: {rsTotal}</p>
           <p>Playoffs: {poTotal}</p>
@@ -63,11 +66,27 @@ export default function Player() {
               {playerRS.map((season) => {
                 return (
                   <tr key={season.year + season.rs_score}>
-                    <td>{season.year}</td>
-                    <td>{season.rs_score}</td>
-                    <td>{season.league}</td>
+                    <td>
+                      <Link
+                        to={`/seasons/regularseason/${season.league}/${season.year}`}
+                      >
+                        {season.year}
+                      </Link>
+                    </td>
+                    <td>{Number(season.rs_score).toFixed(2)}</td>
+                    <td>
+                      <Link
+                        to={`/seasons/regularseason/${season.league}/${season.year}`}
+                      >
+                        {season.league}
+                      </Link>
+                    </td>
                     <td>{season.rs_age}</td>
-                    <td>{season.rs_tm}</td>
+                    <td>
+                      <Link to={`/teams/${season.rs_tm}/${season.year}`}>
+                        {season.rs_tm}
+                      </Link>
+                    </td>
                     <td>{season.rs_pos}</td>
                     <td>{season.rs_g}</td>
                     <td>{season.rs_mp}</td>
@@ -102,11 +121,27 @@ export default function Player() {
                   {playerPO.map((season) => {
                     return (
                       <tr key={season.year + season.po_score}>
-                        <td>{season.year}</td>
-                        <td>{season.po_score}</td>
-                        <td>{season.league}</td>
+                        <td>
+                          <Link
+                            to={`/seasons/playoffs/${season.league}/${season.year}`}
+                          >
+                            {season.year}
+                          </Link>
+                        </td>
+                        <td>{Number(season.po_score).toFixed(2)}</td>
+                        <td>
+                          <Link
+                            to={`/seasons/playoffs/${season.league}/${season.year}`}
+                          >
+                            {season.league}
+                          </Link>
+                        </td>
                         <td>{season.po_age}</td>
-                        <td>{season.po_tm}</td>
+                        <td>
+                          <Link to={`/teams/${season.po_tm}/${season.year}`}>
+                            {season.po_tm}
+                          </Link>
+                        </td>
                         <td>{season.po_pos}</td>
                         <td>{season.po_g}</td>
                         <td>{season.po_mp}</td>
