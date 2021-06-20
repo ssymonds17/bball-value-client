@@ -18,3 +18,12 @@ export const fetchPlayerList = async () => {
     throw err.response.data;
   }
 };
+
+export const fetchGreatestPlayers = async () => {
+  try {
+    const response = await axios.get(`${baseUrl}/players/greatest`);
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
