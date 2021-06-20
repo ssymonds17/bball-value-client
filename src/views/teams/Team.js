@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchTeamPlayers, fetchTeamData } from '../../apis/team';
 import {
   extractTeamID,
@@ -62,9 +63,19 @@ export default function Team() {
               {playersRS.map((player) => {
                 return (
                   <tr key={player.player_id}>
-                    <td>{player.player_name}</td>
+                    <td>
+                      <Link to={`/players/${player.player_id}`}>
+                        {player.player_name}
+                      </Link>
+                    </td>
                     <td>{Number(player.rs_score).toFixed(2)}</td>
-                    <td>{player.league}</td>
+                    <td>
+                      <Link
+                        to={`/seasons/regularseason/${player.league}/${player.year}`}
+                      >
+                        {player.league}
+                      </Link>
+                    </td>
                     <td>{player.rs_age}</td>
                     <td>{player.rs_pos}</td>
                     <td>{player.rs_g}</td>
@@ -98,7 +109,13 @@ export default function Team() {
                       <tr key={player.player_id}>
                         <td>{player.player_name}</td>
                         <td>{Number(player.po_score).toFixed(2)}</td>
-                        <td>{player.league}</td>
+                        <td>
+                          <Link
+                            to={`/seasons/playoffs/${player.league}/${player.year}`}
+                          >
+                            {player.league}
+                          </Link>
+                        </td>
                         <td>{player.po_age}</td>
                         <td>{player.po_pos}</td>
                         <td>{player.po_g}</td>
