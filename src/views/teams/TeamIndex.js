@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchFranchiseCode, fetchFranchiseSeasons } from '../../apis/team';
 
 export default function TeamIndex() {
@@ -46,9 +47,23 @@ export default function TeamIndex() {
               {teamSeasons.map((season) => {
                 return (
                   <tr key={season.year}>
-                    <td>{season.year}</td>
-                    <td>{season.league}</td>
-                    <td>{season.team_full}</td>
+                    <td>
+                      <Link to={`/teams/${season.team}/${season.year}`}>
+                        {season.year}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link
+                        to={`/seasons/overall/${season.league}/${season.year}`}
+                      >
+                        {season.league}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link to={`/teams/${season.team}/${season.year}`}>
+                        {season.team_full}
+                      </Link>
+                    </td>
                     <td>{season.record}</td>
                     <td>{season.result}</td>
                   </tr>
