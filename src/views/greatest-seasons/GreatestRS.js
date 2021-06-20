@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { fetchGreatestRS } from '../../apis/greatestSeasons';
 
 export default function GreatestRS() {
@@ -49,11 +50,31 @@ export default function GreatestRS() {
                 return (
                   <tr key={player.player_id + player.year}>
                     <td>{(rank += 1)}</td>
-                    <td>{player.player_name}</td>
-                    <td>{player.year}</td>
-                    <td>{player.league}</td>
+                    <td>
+                      <Link to={`/players/${player.player_id}`}>
+                        {player.player_name}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link
+                        to={`/seasons/regularseason/${player.league}/${player.year}`}
+                      >
+                        {player.year}
+                      </Link>
+                    </td>
+                    <td>
+                      <Link
+                        to={`/seasons/regularseason/${player.league}/${player.year}`}
+                      >
+                        {player.league}
+                      </Link>
+                    </td>
                     <td>{Number(player.rs_score).toFixed(2)}</td>
-                    <td>{player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}</td>
+                    <td>
+                      <Link to={`/teams/${player.rs_tm}/${player.year}`}>
+                        {player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}
+                      </Link>
+                    </td>
                     <td>{player.rs_age}</td>
                     <td>{player.rs_pos}</td>
                     <td>{player.rs_g}</td>
