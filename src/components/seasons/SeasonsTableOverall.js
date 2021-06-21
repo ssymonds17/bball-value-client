@@ -9,7 +9,7 @@ export default function SeasonsTableOverall({ playerList, greatest }) {
         <tr>
           <th>Rank</th>
           <th>Name</th>
-          {/* If rendered in greatest seasons page then following 2 rows are rendered */}
+          {/* If rendered in greatest seasons page then following 2 rows are also rendered  */}
           {greatest && <th>Year</th>}
           {greatest && <th>League</th>}
           <th>Value</th>
@@ -38,8 +38,7 @@ export default function SeasonsTableOverall({ playerList, greatest }) {
                   {player.player_name}
                 </Link>
               </td>
-              {/* If rendered in greatest seasons page then following 2 rows are rendered */}
-
+              {/* If rendered in greatest seasons page then following 2 rows are also rendered */}
               {greatest && (
                 <td>
                   <Link to={`/seasons/overall/${player.league}/${player.year}`}>

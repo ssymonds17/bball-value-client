@@ -33,7 +33,11 @@ export default function Overall() {
           <h1>
             {thisLeague} {thisYear} Overall Season Statistics
           </h1>
-          <SeasonsTableOverall playerList={seasonData} greatest={false} />
+          <SeasonsTableOverall
+            playerList={seasonData}
+            greatest={false}
+            seasonType='overall'
+          />
         </div>
       )}
     </div>

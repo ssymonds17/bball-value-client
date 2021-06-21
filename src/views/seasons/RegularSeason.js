@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { fetchRegularSeason } from '../../apis/season';
 import { extractLeague, extractYear } from '../../helpers/season';
+import SeasonsTable from '../../components/seasons/SeasonsTable';
 
 export default function RegularSeason() {
   const [seasonData, setSeasonData] = useState(null);
   const [thisLeague, setThisLeague] = useState(null);
   const [thisYear, setThisYear] = useState(null);
-  let rank = 0;
 
   const loadRegularSeason = async (league, year) => {
     const season = await fetchRegularSeason(league, year);
@@ -34,50 +33,11 @@ export default function RegularSeason() {
           <h1>
             {thisLeague} {thisYear} Regular Season Statistics
           </h1>
-          <table>
-            <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Name</th>
-                <th>Score</th>
-                <th>Team</th>
-                <th>Age</th>
-                <th>Pos</th>
-                <th>G</th>
-                <th>MP</th>
-                <th>Val%</th>
-                <th>Tm Record</th>
-                <th>Tm Result</th>
-              </tr>
-            </thead>
-            <tbody>
-              {seasonData.map((player) => {
-                return (
-                  <tr key={player.player_id + player.rs_tm}>
-                    <td>{(rank += 1)}</td>
-                    <td>
-                      <Link to={`/players/${player.player_id}`}>
-                        {player.player_name}
-                      </Link>
-                    </td>
-                    <td>{Number(player.rs_score).toFixed(2)}</td>
-                    <td>
-                      <Link to={`/teams/${player.rs_tm}/${player.year}`}>
-                        {player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}
-                      </Link>
-                    </td>
-                    <td>{player.rs_age}</td>
-                    <td>{player.rs_pos}</td>
-                    <td>{player.rs_g}</td>
-                    <td>{player.rs_mp}</td>
-                    <td>{player.rs_val_perc}</td>
-                    <td>{player.tm_record}</td>
-                    <td>{player.tm_result}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <SeasonsTable
+            playerList={seasonData}
+            greatest={false}
+            seasonType='rs'
+          />
         </div>
       )}
     </div>
