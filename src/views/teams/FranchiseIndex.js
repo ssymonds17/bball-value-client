@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import {
   fetchCurrentFranchises,
   fetchDefunctFranchises
 } from '../../apis/team';
+import FranchiseIndexTable from '../../components/teams/FranchiseIndexTable';
 
 export default function FranchiseIndex() {
   const [currentFranchises, setCurrentFranchises] = useState([]);
@@ -38,59 +38,13 @@ export default function FranchiseIndex() {
       {!isCurrentLoading && (
         <div>
           <h1>Current Franchises</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>Team Name</th>
-                <th>From</th>
-                <th>Until</th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentFranchises.map((franchise) => {
-                return (
-                  <tr key={franchise.franchise_code}>
-                    <td>
-                      <Link to={`/teams/${franchise.franchise_code}`}>
-                        {franchise.franchise}
-                      </Link>
-                    </td>
-                    <td>{franchise.first_year}</td>
-                    <td>{franchise.last_year}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <FranchiseIndexTable franchiseList={currentFranchises} />
         </div>
       )}
       {!isDefunctLoading && (
         <div>
           <h1>Defunct Franchises</h1>
-          <table>
-            <thead>
-              <tr>
-                <th>Team Name</th>
-                <th>From</th>
-                <th>Until</th>
-              </tr>
-            </thead>
-            <tbody>
-              {defunctFranchises.map((franchise) => {
-                return (
-                  <tr key={franchise.franchise_code}>
-                    <td>
-                      <Link to={`/teams/${franchise.franchise_code}`}>
-                        {franchise.franchise}
-                      </Link>
-                    </td>
-                    <td>{franchise.first_year}</td>
-                    <td>{franchise.last_year}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <FranchiseIndexTable franchiseList={defunctFranchises} />
         </div>
       )}
     </div>
