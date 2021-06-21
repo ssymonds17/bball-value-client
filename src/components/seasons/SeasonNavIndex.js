@@ -21,8 +21,6 @@ export default function SeasonNavIndex({
           <SeasonNavButton link={prevOverall} direction='prev' year={year} />
         );
       } else if (direction === 'next') {
-        console.log(nextOverall);
-
         return (
           <SeasonNavButton link={nextOverall} direction='next' year={year} />
         );

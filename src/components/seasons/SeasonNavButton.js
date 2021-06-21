@@ -14,7 +14,7 @@ export default function SeasonNavButton({ link, direction, year }) {
     return (
       <Link to={link}>
         <button>
-          {`<<`} {Number(year) + 1} Season
+          {Number(year) + 1} Season {`>>`}
         </button>
       </Link>
     );
