@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function SeasonTypeButton({
-  league,
-  year,
+  league = null,
+  year = null,
   seasonType,
   greatest
 }) {

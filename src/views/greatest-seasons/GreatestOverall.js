@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchGreatestOverall } from '../../apis/greatestSeasons';
 import SeasonsTableOverall from '../../components/seasons/SeasonsTableOverall';
+import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
 
 export default function GreatestOverall() {
   const [greatestSeasons, setGreatestSeasons] = useState(null);
@@ -26,6 +27,8 @@ export default function GreatestOverall() {
       {!isLoading && greatestSeasons && (
         <div>
           <h1>Greatest Overall Seasons</h1>
+          <SeasonTypeButton seasonType='Regular Season' greatest={true} />
+          <SeasonTypeButton seasonType='Playoffs' greatest={true} />
           <SeasonsTableOverall playerList={greatestSeasons} greatest={true} />
         </div>
       )}

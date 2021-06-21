@@ -8,6 +8,7 @@ import {
 } from '../../helpers/season';
 import SeasonsTable from '../../components/seasons/SeasonsTable';
 import SeasonNavIndex from '../../components/seasons/SeasonNavIndex';
+import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
 
 export default function RegularSeason() {
   const [seasonData, setSeasonData] = useState(null);
@@ -70,6 +71,18 @@ export default function RegularSeason() {
               seasonType={'rs'}
             />
           )}
+          <SeasonTypeButton
+            league={thisLeague}
+            year={thisYear}
+            seasonType='Overall'
+            greatest={false}
+          />
+          <SeasonTypeButton
+            league={thisLeague}
+            year={thisYear}
+            seasonType='Playoffs'
+            greatest={false}
+          />
           <SeasonsTable
             playerList={seasonData}
             greatest={false}
