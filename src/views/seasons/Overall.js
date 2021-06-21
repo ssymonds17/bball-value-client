@@ -8,6 +8,7 @@ import {
 } from '../../helpers/season';
 import SeasonsTableOverall from '../../components/seasons/SeasonsTableOverall';
 import SeasonNavIndex from '../../components/seasons/SeasonNavIndex';
+import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
 
 export default function Overall() {
   const [seasonData, setSeasonData] = useState(null);
@@ -70,6 +71,18 @@ export default function Overall() {
               seasonType={'overall'}
             />
           )}
+          <SeasonTypeButton
+            league={thisLeague}
+            year={thisYear}
+            seasonType='Regular Season'
+            greatest={false}
+          />
+          <SeasonTypeButton
+            league={thisLeague}
+            year={thisYear}
+            seasonType='Playoffs'
+            greatest={false}
+          />
           <SeasonsTableOverall
             playerList={seasonData}
             greatest={false}
