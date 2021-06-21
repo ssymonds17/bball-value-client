@@ -31,7 +31,6 @@ export default function FranchiseIndex() {
     <div>
       {isCurrentLoading && isDefunctLoading && (
         <div>
-          <h1>Franchise Index</h1>
           <h2>Loading....</h2>
         </div>
       )}

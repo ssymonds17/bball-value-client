@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchOverallSeason } from '../../apis/season';
 import { extractLeague, extractYear } from '../../helpers/season';
 import SeasonsTableOverall from '../../components/seasons/SeasonsTableOverall';
+import SeasonNavIndex from '../../components/seasons/SeasonNavIndex';
 
 export default function Overall() {
   const [seasonData, setSeasonData] = useState(null);
@@ -33,6 +34,18 @@ export default function Overall() {
           <h1>
             {thisLeague} {thisYear} Overall Season Statistics
           </h1>
+          <SeasonNavIndex
+            direction='prev'
+            league={thisLeague}
+            year={thisYear}
+            seasonType={'overall'}
+          />
+          <SeasonNavIndex
+            direction='next'
+            league={thisLeague}
+            year={thisYear}
+            seasonType={'overall'}
+          />
           <SeasonsTableOverall
             playerList={seasonData}
             greatest={false}
