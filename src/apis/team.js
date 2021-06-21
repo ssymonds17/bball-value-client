@@ -14,9 +14,11 @@ export const fetchTeamPlayers = async (franchiseCode, year) => {
 };
 
 // Get team data (team name, record etc.) by ID and year
-export const fetchTeamData = async (teamAbbrev, year) => {
+export const fetchTeamData = async (franchiseCode, year) => {
   try {
-    const response = await axios.get(`${baseUrl}/teams/${teamAbbrev}/${year}`);
+    const response = await axios.get(
+      `${baseUrl}/teams/${franchiseCode}/${year}`
+    );
     return response.data;
   } catch (err) {
     throw err.response.data;

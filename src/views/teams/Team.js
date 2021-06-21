@@ -2,12 +2,15 @@ import React, { useState, useEffect } from 'react';
 import {
   fetchTeamPlayers,
   fetchTeamData,
-  fetchFranchiseYears
+  fetchFranchiseYears,
+  fetchFranchiseCode
 } from '../../apis/team';
 import {
   extractTeamID,
   extractYear,
-  sanitizeTeamPlayers
+  sanitizeTeamPlayers,
+  checkFirstYear,
+  checkLastYear
 } from '../../helpers/team';
 import TeamTableRS from '../../components/teams/TeamTableRS';
 import TeamTablePO from '../../components/teams/TeamTablePO';
@@ -25,8 +28,12 @@ export default function Team() {
   const currentURL = window.location.pathname;
 
   const loadTeamRecord = async (teamAbbrev, year) => {
-    const newTeam = await fetchTeamData(teamAbbrev, year);
-    const franchiseCode = newTeam[0].franchise_code;
+    // Retrieve franchise code with the team abbreviation
+    const franchise = await fetchFranchiseCode(teamAbbrev);
+    const franchiseCode = franchise[0].franchise_code;
+    // Get the team data for that year using franchise code and year
+    const newTeam = await fetchTeamData(franchiseCode, year);
+    // Get the player records for that team season
     const teamPlayers = await fetchTeamPlayers(franchiseCode, year);
     const franchiseYears = await fetchFranchiseYears(franchiseCode);
     const rsPlayers = sanitizeTeamPlayers(teamPlayers, 'rs');
@@ -55,7 +62,7 @@ export default function Team() {
       loadTeamRecord(teamAbbrev, year);
       setInitialURL(window.location.pathname);
     }
-  }, [currentURL]);
+  }, [currentURL, initialURL]);
 
   return (
     <div>
@@ -69,14 +76,24 @@ export default function Team() {
           <h1>
             {teamYear} {teamName}
           </h1>
-          {teamYear > franchiseFirstYear && (
+          {/* Ensure user cannot navigate to season earlier than first year */}
+          {checkFirstYear(
+            teamYear,
+            franchiseFirstYear,
+            team[0].franchise_code
+          ) && (
             <TeamNavButton
               direction='prev'
               franchiseCode={team[0].franchise_code}
               year={teamYear}
             />
           )}
-          {teamYear < franchiseLastYear && (
+          {/* Ensure user cannot navigate to season later than last year */}
+          {checkLastYear(
+            teamYear,
+            franchiseLastYear,
+            team[0].franchise_code
+          ) && (
             <TeamNavButton
               direction='next'
               franchiseCode={team[0].franchise_code}

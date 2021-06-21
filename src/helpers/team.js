@@ -50,8 +50,35 @@ const filterPlayers = (playerList, seasonType) => {
   }
 };
 
+// Both filter and sort player lists
 export const sanitizeTeamPlayers = (playerList, seasonType) => {
   const filteredPlayers = filterPlayers(playerList, seasonType);
   const sortedPlayers = sortPlayers(filteredPlayers, seasonType);
   return sortedPlayers;
+};
+
+// Set styles for navigation buttons. Check first years for the franchise.
+export const checkFirstYear = (currentYear, firstYear, franchiseCode) => {
+  // Check if current year is equal to first year
+  if (currentYear === firstYear) {
+    return false;
+    // Check if the franchise is CHO and year is 2005 so user cannot navigate to non-existent 2004
+  } else if (franchiseCode === 'CHO' && currentYear === 2005) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+// Set styles for navigation buttons. Check first and last years for the franchise.
+export const checkLastYear = (currentYear, lastYear, franchiseCode) => {
+  // Check if current year is equal to last year
+  if (currentYear === lastYear) {
+    return false;
+    // Check if the franchise is CHO and year is 2002 so user cannot navigate to non-existent 2003
+  } else if (franchiseCode === 'CHO' && currentYear === 2002) {
+    return false;
+  } else {
+    return true;
+  }
 };
