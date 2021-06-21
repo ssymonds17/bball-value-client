@@ -72,3 +72,15 @@ export const fetchGreatestTeams = async () => {
     throw err.response.data;
   }
 };
+
+// Get franchise first and last years
+export const fetchFranchiseYears = async (franchiseCode) => {
+  try {
+    const response = await axios.get(
+      `${baseUrl}/franchiselists/${franchiseCode}`
+    );
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
