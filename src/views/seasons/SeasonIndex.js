@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchSeasonIndex } from '../../apis/season';
+import Loading from '../../components/Loading';
 
 export default function SeasonIndex() {
   const [seasonsData, setSeasonsData] = useState(null);
@@ -18,7 +19,7 @@ export default function SeasonIndex() {
     <div>
       {!seasonsData && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {seasonsData && (

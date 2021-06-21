@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchFranchiseCode, fetchFranchiseSeasons } from '../../apis/team';
+import Loading from '../../components/Loading';
 
 export default function TeamIndex() {
   const [teamSeasons, setTeamSeasons] = useState([]);
@@ -27,7 +28,7 @@ export default function TeamIndex() {
     <div>
       {!teamSeasons && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {teamSeasons && (

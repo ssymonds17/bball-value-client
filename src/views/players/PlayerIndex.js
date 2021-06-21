@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchPlayerList } from '../../apis/player';
 import { playerSearch } from '../../helpers/playerSearch';
+import Loading from '../../components/Loading';
 
 export default function PlayerIndex() {
   const [playerList, setPlayerList] = useState([]);
@@ -29,7 +30,7 @@ export default function PlayerIndex() {
     <div>
       {isLoading && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {!isLoading && visiblePlayers && (

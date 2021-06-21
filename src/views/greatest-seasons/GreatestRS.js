@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchGreatestRS } from '../../apis/greatestSeasons';
 import SeasonsTable from '../../components/seasons/SeasonsTable';
 import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
+import Loading from '../../components/Loading';
 
 export default function GreatestRS() {
   const [greatestSeasons, setGreatestSeasons] = useState(null);
@@ -21,7 +22,7 @@ export default function GreatestRS() {
     <div>
       {isLoading && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {!isLoading && greatestSeasons && (

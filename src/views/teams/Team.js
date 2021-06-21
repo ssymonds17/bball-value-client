@@ -15,6 +15,7 @@ import {
 import TeamTableRS from '../../components/teams/TeamTableRS';
 import TeamTablePO from '../../components/teams/TeamTablePO';
 import TeamNavButton from '../../components/teams/TeamNavButton';
+import Loading from '../../components/Loading';
 
 export default function Team() {
   const [playersRS, setPlayersRS] = useState([]);
@@ -68,7 +69,7 @@ export default function Team() {
     <div>
       {!team && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {team && playersRS && playersPO && (

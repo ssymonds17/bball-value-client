@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchGreatestPlayers } from '../../apis/player';
+import Loading from '../../components/Loading';
 
 export default function GreatestPlayers() {
   const [greatestPlayers, setGreatestPlayers] = useState([]);
@@ -20,8 +21,7 @@ export default function GreatestPlayers() {
     <div>
       {isLoading && (
         <div>
-          <h1>Greatest Players All Time</h1>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {!isLoading && greatestPlayers && (

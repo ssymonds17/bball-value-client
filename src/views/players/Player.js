@@ -6,6 +6,7 @@ import {
   filterSeasons,
   calculateTotals
 } from '../../helpers/player';
+import Loading from '../../components/Loading';
 
 export default function Player() {
   const [playerRS, setPlayerRS] = useState(null);
@@ -36,7 +37,7 @@ export default function Player() {
     <div>
       {!playerRS && !playerPO && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {playerRS && playerPO && (

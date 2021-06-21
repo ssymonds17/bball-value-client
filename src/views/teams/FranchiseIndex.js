@@ -4,6 +4,7 @@ import {
   fetchDefunctFranchises
 } from '../../apis/team';
 import FranchiseIndexTable from '../../components/teams/FranchiseIndexTable';
+import Loading from '../../components/Loading';
 
 export default function FranchiseIndex() {
   const [currentFranchises, setCurrentFranchises] = useState([]);
@@ -31,7 +32,7 @@ export default function FranchiseIndex() {
     <div>
       {isCurrentLoading && isDefunctLoading && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {!isCurrentLoading && (

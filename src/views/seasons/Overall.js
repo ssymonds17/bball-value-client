@@ -9,6 +9,7 @@ import {
 import SeasonsTableOverall from '../../components/seasons/SeasonsTableOverall';
 import SeasonNavIndex from '../../components/seasons/SeasonNavIndex';
 import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
+import Loading from '../../components/Loading';
 
 export default function Overall() {
   const [seasonData, setSeasonData] = useState(null);
@@ -47,7 +48,7 @@ export default function Overall() {
     <div>
       {!seasonData && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {seasonData && (

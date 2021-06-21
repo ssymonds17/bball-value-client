@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { fetchGreatestOverall } from '../../apis/greatestSeasons';
 import SeasonsTableOverall from '../../components/seasons/SeasonsTableOverall';
 import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
+import Loading from '../../components/Loading';
 
 export default function GreatestOverall() {
   const [greatestSeasons, setGreatestSeasons] = useState(null);
@@ -21,7 +22,7 @@ export default function GreatestOverall() {
     <div>
       {isLoading && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {!isLoading && greatestSeasons && (

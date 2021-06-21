@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchGreatestTeams } from '../../apis/team';
+import Loading from '../../components/Loading';
 
 export default function GreatestTeams() {
   const [greatestTeams, setGreatestTeams] = useState([]);
@@ -20,7 +21,7 @@ export default function GreatestTeams() {
     <div>
       {isLoading && (
         <div>
-          <h2>Loading....</h2>
+          <Loading />
         </div>
       )}
       {!isLoading && greatestTeams && (
