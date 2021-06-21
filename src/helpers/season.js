@@ -24,7 +24,7 @@ export const checkFirstYear = (currentYear, league) => {
   }
 };
 
-// Set styles for navigation buttons. Check first and last years for the franchise.
+// Set styles for navigation buttons. Check against league for upper bound 2020 or 1976 respectively
 export const checkLastYear = (currentYear, league) => {
   const year = Number(currentYear);
   // Check if NBA season is 2020

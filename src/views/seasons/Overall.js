@@ -13,6 +13,8 @@ export default function Overall() {
   const [seasonData, setSeasonData] = useState(null);
   const [thisLeague, setThisLeague] = useState(null);
   const [thisYear, setThisYear] = useState(null);
+  const [initialURL, setInitialURL] = useState('');
+  const currentURL = window.location.pathname;
 
   const loadOverallSeason = async (league, year) => {
     const season = await fetchOverallSeason(league, year);
@@ -26,6 +28,19 @@ export default function Overall() {
     setThisYear(year);
     loadOverallSeason(league, year);
   }, []);
+
+  // When navigational buttons to prev and next seasons are clicked another db call is triggered to get the new season data. This is done by checking the old url path to the existing one and looking for discrepencies
+  useEffect(() => {
+    if (initialURL !== currentURL) {
+      setSeasonData(null);
+      const league = extractLeague();
+      const year = extractYear();
+      setThisLeague(league);
+      setThisYear(year);
+      loadOverallSeason(league, year);
+      setInitialURL(window.location.pathname);
+    }
+  }, [currentURL, initialURL]);
 
   return (
     <div>
