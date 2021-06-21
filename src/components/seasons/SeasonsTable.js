@@ -29,7 +29,7 @@ export default function SeasonsTable({ playerList, greatest, seasonType }) {
         <tbody>
           {playerList.map((player) => {
             return (
-              <tr key={player.player_id + player.rs_tm}>
+              <tr key={player.player_id + player.rs_tm + player.year}>
                 <td>{(rank += 1)}</td>
                 <td>
                   <Link to={`/players/${player.player_id}`}>
@@ -78,13 +78,32 @@ export default function SeasonsTable({ playerList, greatest, seasonType }) {
         <tbody>
           {playerList.map((player) => {
             return (
-              <tr key={player.player_id + player.rs_tm}>
+              <tr key={player.player_id + player.po_tm + player.year}>
                 <td>{(rank += 1)}</td>
                 <td>
                   <Link to={`/players/${player.player_id}`}>
                     {player.player_name}
                   </Link>
                 </td>
+                {/* If rendered in greatest seasons page then following 2 rows are also rendered */}
+                {greatest && (
+                  <td>
+                    <Link
+                      to={`/seasons/overall/${player.league}/${player.year}`}
+                    >
+                      {player.year}
+                    </Link>
+                  </td>
+                )}
+                {greatest && (
+                  <td>
+                    <Link
+                      to={`/seasons/overall/${player.league}/${player.year}`}
+                    >
+                      {player.league}
+                    </Link>
+                  </td>
+                )}
                 <td>{Number(player.po_score).toFixed(2)}</td>
                 <td>
                   <Link to={`/teams/${player.po_tm}/${player.year}`}>
