@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchGreatestTeams } from '../../apis/team';
 import Loading from '../../components/Loading';
+import '../../styles/greatestTeam.css';
 
 export default function GreatestTeams() {
   const [greatestTeams, setGreatestTeams] = useState([]);
@@ -25,7 +26,7 @@ export default function GreatestTeams() {
         </div>
       )}
       {!isLoading && greatestTeams && (
-        <div className='container' style={{ width: '55vw' }}>
+        <div className='container g-team-container'>
           <h1>Greatest Teams All Time</h1>
           <table>
             <thead>

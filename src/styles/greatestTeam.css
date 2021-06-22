@@ -1,0 +1,19 @@
+.g-team-container {
+  width: 55vw;
+}
+
+@media screen and (max-width: 1200px) {
+  .g-team-container {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .g-team-container {
+    width: 90vw;
+  }
+}
+@media screen and (max-width: 600px) {
+  .g-team-container {
+    width: 99vw;
+  }
+}
