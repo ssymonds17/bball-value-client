@@ -18,6 +18,8 @@ import GreatestPlayoffs from './views/greatest-seasons/GreatestPlayoffs';
 import Navbar from './components/Navbar';
 import NotFound from './views/NotFound';
 
+import './App.css';
+
 function App() {
   return (
     <React.Fragment>
