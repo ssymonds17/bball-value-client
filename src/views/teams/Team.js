@@ -77,7 +77,7 @@ export default function Team() {
         </div>
       )}
       {team && playersRS && playersPO && (
-        <div className='container'>
+        <div className='container team-container'>
           <header className='team-header'>
             <section className='team-title-container'>
               <h1>

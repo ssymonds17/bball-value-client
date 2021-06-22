@@ -1,3 +1,7 @@
+.team-container {
+  width: 70vw;
+}
+
 .team-header {
   display: flex;
   align-content: space-between;
@@ -49,11 +53,15 @@
 .team-index-btn:hover {
   background-color: #3a8340;
   color: white;
+  cursor: pointer;
 }
 
 /* Media Queries */
 
 @media screen and (max-width: 1250px) {
+  .team-container {
+    width: 90vw;
+  }
   .team-header {
     display: block;
   }
