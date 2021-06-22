@@ -1,0 +1,83 @@
+.team-header {
+  display: flex;
+  align-content: space-between;
+  padding-bottom: 0.8rem;
+
+  border-bottom: 1px solid black;
+}
+
+.team-title-container {
+  width: 60%;
+}
+
+.team-btn-container {
+  width: 40%;
+}
+
+.season-change-btn-container {
+  height: 30%;
+  float: right;
+  padding-top: 0.8rem;
+}
+
+.index-btn-container {
+  height: 50%;
+  width: 100%;
+}
+
+/* Team Buttons */
+.team-btn {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.team-nav-btn {
+  padding: 0.2rem 0.8rem;
+  font-size: 1.25rem;
+}
+
+.team-index-btn {
+  margin-top: 0.6rem;
+  font-size: 1.25rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* On Hover */
+.team-nav-btn:hover,
+.team-index-btn:hover {
+  background-color: #3a8340;
+  color: white;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1250px) {
+  .team-header {
+    display: block;
+  }
+  .season-change-btn-container {
+    padding-top: 0;
+  }
+  .team-title-container,
+  .team-btn-container {
+    width: 100%;
+  }
+  .season-change-btn-container {
+    height: auto;
+    float: none;
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+  }
+
+  .index-btn-container {
+    height: 50%;
+    padding-bottom: 0.2rem;
+  }
+  .team-index-btn {
+    padding: 0.8rem;
+    margin-top: 0.4rem;
+  }
+}
