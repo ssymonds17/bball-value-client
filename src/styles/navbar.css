@@ -1,0 +1,48 @@
+.navbar-container {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100vw;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 4.1rem;
+  padding: 0;
+  background-color: #3a8340;
+  align-items: flex-start;
+}
+
+/* Nav Button */
+.nav-btn {
+  top: 0;
+  height: 3.8rem;
+  font-size: 1rem;
+  border-radius: 0;
+  width: 14.3vw;
+  color: black;
+  background-color: #fdfdfd;
+  border: none;
+  outline: none;
+}
+.nav-btn:hover {
+  background-color: #3a8340;
+  border-color: #3a8340;
+  color: white;
+  cursor: pointer;
+}
+
+.nav-btn:focus {
+  background-color: #3a8340;
+  border-color: #3a8340;
+  color: white;
+  box-shadow: none;
+}
+
+.nav-btn:active {
+  background-color: #3a8340;
+  border-color: #3a8340;
+  color: white;
+  box-shadow: none;
+}

@@ -1,4 +1,6 @@
+html,
 body {
+  margin: 0;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -10,6 +12,7 @@ button {
   padding-top: 2rem;
   margin: 0 auto;
   height: 100vh;
+  padding-top: 4rem;
 }
 
 /* Font Sizes */
