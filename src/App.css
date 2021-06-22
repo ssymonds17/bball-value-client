@@ -21,3 +21,15 @@ h2 {
 h3 {
   font-size: 1.5rem;
 }
+
+/* Styles for Loading component and its parent element */
+
+.loading-parent {
+  position: relative;
+}
+.loading {
+  position: absolute;
+  top: 50%;
+  height: 150px;
+  margin-top: -50px;
+}

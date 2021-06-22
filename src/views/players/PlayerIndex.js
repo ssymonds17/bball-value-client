@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { fetchPlayerList } from '../../apis/player';
 import { playerSearch } from '../../helpers/playerSearch';
 import Loading from '../../components/Loading';
+import '../../styles/playerIndexView.css';
 
 export default function PlayerIndex() {
   const [playerList, setPlayerList] = useState([]);
@@ -34,15 +35,19 @@ export default function PlayerIndex() {
         </div>
       )}
       {!isLoading && visiblePlayers && (
-        <div className='container' style={{ width: '40vw' }}>
-          <h1>Player Index</h1>
-          <label htmlFor='playerSearch'>Search for player: </label>
-          <input
-            type='text'
-            name='playerSearch'
-            id='playerSearch'
-            onChange={(e) => setUserInput(e.target.value)}
-          ></input>
+        <div className='container player-index-container'>
+          <header>
+            <h1>Player Index</h1>
+            <br />
+            <input
+              placeholder='Player Search'
+              type='text'
+              name='playerSearch'
+              id='playerSearch'
+              autocomplete='off'
+              onChange={(e) => setUserInput(e.target.value)}
+            ></input>
+          </header>
           <table>
             <thead>
               <tr>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchGreatestTeams } from '../../apis/team';
 import Loading from '../../components/Loading';
-import '../../styles/greatestTeam.css';
+import '../../styles/greatestTeams.css';
 
 export default function GreatestTeams() {
   const [greatestTeams, setGreatestTeams] = useState([]);

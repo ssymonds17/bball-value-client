@@ -1,0 +1,29 @@
+.player-index-container {
+  width: 40vw;
+}
+
+.player-index-container header h1 {
+  margin-bottom: 0.7rem;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+  width: 97.5%;
+  margin-bottom: 0.4rem;
+  height: 1.5rem;
+}
+
+input[type='text'] {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.search-input:focus {
+  border: 1px solid tomato;
+}
+
+@media screen and (max-width: 800px) {
+  .player-index-container {
+    width: 70vw;
+  }
+}
