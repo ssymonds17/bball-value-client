@@ -52,7 +52,7 @@ export default function RegularSeason() {
         </div>
       )}
       {seasonData && (
-        <div>
+        <div className='container'>
           <h1>
             {thisLeague} {thisYear} Regular Season Statistics
           </h1>

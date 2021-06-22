@@ -26,7 +26,7 @@ export default function GreatestOverall() {
         </div>
       )}
       {!isLoading && greatestSeasons && (
-        <div>
+        <div className='container' style={{ width: '80vw' }}>
           <h1>Greatest Overall Seasons</h1>
           <SeasonTypeButton seasonType='Regular Season' greatest={true} />
           <SeasonTypeButton seasonType='Playoffs' greatest={true} />

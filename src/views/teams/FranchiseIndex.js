@@ -29,20 +29,20 @@ export default function FranchiseIndex() {
   }, []);
 
   return (
-    <div>
+    <div style={{ display: 'flex' }}>
       {isCurrentLoading && isDefunctLoading && (
         <div>
           <Loading />
         </div>
       )}
       {!isCurrentLoading && (
-        <div>
+        <div className='container' style={{ width: '35vw' }}>
           <h1>Current Franchises</h1>
           <FranchiseIndexTable franchiseList={currentFranchises} />
         </div>
       )}
       {!isDefunctLoading && (
-        <div>
+        <div className='container' style={{ width: '35vw' }}>
           <h1>Defunct Franchises</h1>
           <FranchiseIndexTable franchiseList={defunctFranchises} />
         </div>

@@ -26,7 +26,7 @@ export default function GreatestRS() {
         </div>
       )}
       {!isLoading && greatestSeasons && (
-        <div>
+        <div className='container'>
           <h1>Greatest Regular Seasons</h1>
           <SeasonTypeButton seasonType='Overall' greatest={true} />
           <SeasonTypeButton seasonType='Playoffs' greatest={true} />

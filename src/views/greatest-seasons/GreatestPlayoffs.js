@@ -26,10 +26,10 @@ export default function GreatestPlayoffs() {
         </div>
       )}
       {!isLoading && greatestSeasons && (
-        <div>
+        <div className='container'>
           <h1>Greatest Playoff Seasons</h1>
+          <SeasonTypeButton seasonType='Overall' greatest={true} />
           <SeasonTypeButton seasonType='Regular Season' greatest={true} />
-          <SeasonTypeButton seasonType='Playoffs' greatest={true} />
           <SeasonsTable
             playerList={greatestSeasons}
             greatest={true}

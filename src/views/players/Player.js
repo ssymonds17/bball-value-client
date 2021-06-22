@@ -42,7 +42,7 @@ export default function Player() {
         </div>
       )}
       {playerRS && playerPO && (
-        <div>
+        <div className='container'>
           <h1>{playerName}</h1>
           <p>Overall: {overallTotal}</p>
           <p>Regular Season: {rsTotal}</p>

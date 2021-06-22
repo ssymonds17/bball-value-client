@@ -5,3 +5,8 @@ body {
 button {
   font-family: 'Montserrat', sans-serif;
 }
+
+.container {
+  width: 75vw;
+  margin: 0 auto;
+}

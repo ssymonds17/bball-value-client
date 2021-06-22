@@ -34,7 +34,7 @@ export default function PlayerIndex() {
         </div>
       )}
       {!isLoading && visiblePlayers && (
-        <div>
+        <div className='container' style={{ width: '40vw' }}>
           <h1>Player Index</h1>
           <label htmlFor='playerSearch'>Search for player: </label>
           <input

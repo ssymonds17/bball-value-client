@@ -32,7 +32,7 @@ export default function TeamIndex() {
         </div>
       )}
       {teamSeasons && (
-        <div>
+        <div className='container' style={{ width: '60vw' }}>
           <h1>{franchiseName} Franchise Index</h1>
           <table>
             <thead>

@@ -52,7 +52,7 @@ export default function Playoffs() {
         </div>
       )}
       {seasonData && (
-        <div>
+        <div className='container'>
           <h1>
             {thisLeague} {thisYear} Playoffs Statistics
           </h1>

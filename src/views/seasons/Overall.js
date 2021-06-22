@@ -52,7 +52,7 @@ export default function Overall() {
         </div>
       )}
       {seasonData && (
-        <div>
+        <div className='container'>
           <h1>
             {thisLeague} {thisYear} Overall Season Statistics
           </h1>

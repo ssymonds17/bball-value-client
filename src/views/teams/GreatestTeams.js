@@ -25,7 +25,7 @@ export default function GreatestTeams() {
         </div>
       )}
       {!isLoading && greatestTeams && (
-        <div>
+        <div className='container' style={{ width: '55vw' }}>
           <h1>Greatest Teams All Time</h1>
           <table>
             <thead>

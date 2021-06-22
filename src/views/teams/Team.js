@@ -73,7 +73,7 @@ export default function Team() {
         </div>
       )}
       {team && playersRS && playersPO && (
-        <div>
+        <div className='container'>
           <h1>
             {teamYear} {teamName}
           </h1>

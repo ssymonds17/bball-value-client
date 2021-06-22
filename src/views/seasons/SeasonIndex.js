@@ -23,7 +23,7 @@ export default function SeasonIndex() {
         </div>
       )}
       {seasonsData && (
-        <div>
+        <div className='container'>
           <h1>Seasons Index</h1>
           <table>
             <thead>
