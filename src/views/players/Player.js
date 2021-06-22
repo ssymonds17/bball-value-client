@@ -8,6 +8,7 @@ import {
 } from '../../helpers/player';
 import Loading from '../../components/Loading';
 import '../../styles/tables.css';
+import '../../styles/playerView.css';
 
 export default function Player() {
   const [playerRS, setPlayerRS] = useState(null);
@@ -43,10 +44,14 @@ export default function Player() {
       )}
       {playerRS && playerPO && (
         <div className='container'>
-          <h1>{playerName}</h1>
-          <p>Overall: {overallTotal}</p>
-          <p>Regular Season: {rsTotal}</p>
-          <p>Playoffs: {poTotal}</p>
+          <header className='player-header'>
+            <h1>{playerName}</h1>
+            <section className='player-totals-container'>
+              <h2>Overall: {overallTotal}</h2>
+              <h2>Regular Season: {rsTotal}</h2>
+              <h2>Playoffs: {poTotal}</h2>
+            </section>
+          </header>
           <h2>Regular Season</h2>
           <table>
             <thead>
@@ -102,7 +107,7 @@ export default function Player() {
           </table>
           {/* If no playoff records exist do not display playoff table */}
           {playerPO.length ? (
-            <div>
+            <div style={{ borderTop: '0.5px solid black', marginTop: '2rem' }}>
               <h2>Playoffs</h2>
               <table>
                 <thead>
