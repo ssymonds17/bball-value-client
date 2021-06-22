@@ -5,6 +5,7 @@ import {
 } from '../../apis/team';
 import FranchiseIndexTable from '../../components/teams/FranchiseIndexTable';
 import Loading from '../../components/Loading';
+import '../../styles/franchiseIndexView.css';
 
 export default function FranchiseIndex() {
   const [currentFranchises, setCurrentFranchises] = useState([]);
@@ -29,20 +30,20 @@ export default function FranchiseIndex() {
   }, []);
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div className='franchise-index-container'>
       {isCurrentLoading && isDefunctLoading && (
         <div>
           <Loading />
         </div>
       )}
       {!isCurrentLoading && (
-        <div className='container' style={{ width: '35vw' }}>
+        <div className='container franchise-list'>
           <h1>Current Franchises</h1>
           <FranchiseIndexTable franchiseList={currentFranchises} />
         </div>
       )}
       {!isDefunctLoading && (
-        <div className='container' style={{ width: '35vw' }}>
+        <div className='container franchise-list defunct'>
           <h1>Defunct Franchises</h1>
           <FranchiseIndexTable franchiseList={defunctFranchises} />
         </div>

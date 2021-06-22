@@ -1,0 +1,21 @@
+.franchise-index-container {
+  display: flex;
+}
+
+.franchise-list {
+  width: 35vw;
+}
+
+@media screen and (max-width: 770px) {
+  .franchise-index-container {
+    display: block;
+  }
+  .franchise-list {
+    width: 80vw;
+  }
+  .defunct {
+    border-top: 1px solid black;
+    margin-top: 3rem;
+    padding-top: 0;
+  }
+}
