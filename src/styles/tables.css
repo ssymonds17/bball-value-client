@@ -1,0 +1,43 @@
+th {
+  background-color: #3a8340;
+  color: white;
+  font-weight: normal;
+}
+
+th,
+td {
+  text-align: center;
+  white-space: nowrap;
+  padding: 0.2rem;
+}
+
+/* Set borders for th and td to be separate */
+th {
+  border: 1px solid white;
+}
+td {
+  border: 1px solid grey;
+}
+table {
+  border-collapse: collapse;
+}
+
+/* Set colours for when rows are hovered over */
+tr:hover {
+  background-color: #3a8340;
+  color: white;
+}
+tr:hover td {
+  border: 1px solid white;
+}
+tr:hover a {
+  color: white;
+}
+
+/* Ensure that visited links are white when hovered over and blue when not. The default behaviour to change to purple is overriden */
+tr:hover a:visited {
+  color: white;
+}
+td a:visited {
+  color: blue;
+}

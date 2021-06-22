@@ -7,6 +7,7 @@ import {
   calculateTotals
 } from '../../helpers/player';
 import Loading from '../../components/Loading';
+import '../../styles/tables.css';
 
 export default function Player() {
   const [playerRS, setPlayerRS] = useState(null);
