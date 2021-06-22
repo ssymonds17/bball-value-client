@@ -10,6 +10,7 @@ import SeasonsTable from '../../components/seasons/SeasonsTable';
 import SeasonNavIndex from '../../components/seasons/SeasonNavIndex';
 import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
 import Loading from '../../components/Loading';
+import '../../styles/seasonView.css';
 
 export default function Playoffs() {
   const [seasonData, setSeasonData] = useState(null);
@@ -52,38 +53,44 @@ export default function Playoffs() {
         </div>
       )}
       {seasonData && (
-        <div className='container'>
-          <h1>
-            {thisLeague} {thisYear} Playoffs Statistics
-          </h1>
-          {checkFirstYear(thisYear, thisLeague) && (
-            <SeasonNavIndex
-              direction='prev'
-              league={thisLeague}
-              year={thisYear}
-              seasonType={'po'}
-            />
-          )}
-          {checkLastYear(thisYear, thisLeague) && (
-            <SeasonNavIndex
-              direction='next'
-              league={thisLeague}
-              year={thisYear}
-              seasonType={'po'}
-            />
-          )}
-          <SeasonTypeButton
-            league={thisLeague}
-            year={thisYear}
-            seasonType='Overall'
-            greatest={false}
-          />
-          <SeasonTypeButton
-            league={thisLeague}
-            year={thisYear}
-            seasonType='Regular Season'
-            greatest={false}
-          />
+        <div className='container season-container'>
+          <header>
+            <h1>
+              {thisLeague} {thisYear} Playoffs Statistics
+            </h1>
+            <section className='season-nav-container'>
+              {checkFirstYear(thisYear, thisLeague) && (
+                <SeasonNavIndex
+                  direction='prev'
+                  league={thisLeague}
+                  year={thisYear}
+                  seasonType={'po'}
+                />
+              )}
+              {checkLastYear(thisYear, thisLeague) && (
+                <SeasonNavIndex
+                  direction='next'
+                  league={thisLeague}
+                  year={thisYear}
+                  seasonType={'po'}
+                />
+              )}
+            </section>
+            <section className='season-type-container'>
+              <SeasonTypeButton
+                league={thisLeague}
+                year={thisYear}
+                seasonType='Overall'
+                greatest={false}
+              />
+              <SeasonTypeButton
+                league={thisLeague}
+                year={thisYear}
+                seasonType='Regular Season'
+                greatest={false}
+              />
+            </section>
+          </header>
           <SeasonsTable
             playerList={seasonData}
             greatest={false}

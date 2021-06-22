@@ -3,6 +3,7 @@ import { fetchGreatestRS } from '../../apis/greatestSeasons';
 import SeasonsTable from '../../components/seasons/SeasonsTable';
 import SeasonTypeButton from '../../components/seasons/SeasonTypeButton';
 import Loading from '../../components/Loading';
+import '../../styles/seasonView.css';
 
 export default function GreatestRS() {
   const [greatestSeasons, setGreatestSeasons] = useState(null);
@@ -26,10 +27,14 @@ export default function GreatestRS() {
         </div>
       )}
       {!isLoading && greatestSeasons && (
-        <div className='container'>
-          <h1>Greatest Regular Seasons</h1>
-          <SeasonTypeButton seasonType='Overall' greatest={true} />
-          <SeasonTypeButton seasonType='Playoffs' greatest={true} />
+        <div className='container season-container'>
+          <header>
+            <h1>Greatest Regular Seasons</h1>
+            <section className='season-type-container'>
+              <SeasonTypeButton seasonType='Overall' greatest={true} />
+              <SeasonTypeButton seasonType='Playoffs' greatest={true} />
+            </section>
+          </header>
           <SeasonsTable
             playerList={greatestSeasons}
             greatest={true}

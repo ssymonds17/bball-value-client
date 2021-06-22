@@ -1,0 +1,47 @@
+.season-container {
+  width: 80vw;
+}
+
+.season-container header {
+  padding-bottom: 0.7rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid black;
+}
+
+.season-nav-container {
+  display: flex;
+}
+
+.season-type-container {
+  display: flex;
+}
+
+.season-btn {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.25rem;
+  width: 12rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* On Hover */
+.season-btn:hover {
+  background-color: #3a8340;
+  color: white;
+}
+
+@media screen and (max-width: 1450px) {
+  .season-container {
+    width: 90vw;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .season-container table {
+    display: block;
+    overflow: auto;
+  }
+}

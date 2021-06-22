@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/seasonView.css';
 
 export default function SeasonTypeButton({
   league = null,
@@ -26,13 +27,13 @@ export default function SeasonTypeButton({
   if (greatest) {
     return (
       <Link to={`/rankings/seasons/${typeForLink}`}>
-        <button>{seasonType}</button>
+        <button className='season-btn'>{seasonType}</button>
       </Link>
     );
   } else {
     return (
       <Link to={`/seasons/${typeForLink}/${league}/${year}`}>
-        <button>{seasonType}</button>
+        <button className='season-btn'>{seasonType}</button>
       </Link>
     );
   }
