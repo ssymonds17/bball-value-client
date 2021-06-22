@@ -1,0 +1,16 @@
+.team-index-container {
+  width: 60vw;
+}
+
+@media screen and (max-width: 1250px) {
+  .team-index-container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .team-index-container table {
+    display: block;
+    overflow: auto;
+  }
+}
