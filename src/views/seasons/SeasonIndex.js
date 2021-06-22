@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchSeasonIndex } from '../../apis/season';
 import Loading from '../../components/Loading';
+import '../../styles/seasonIndexView.css';
 
 export default function SeasonIndex() {
   const [seasonsData, setSeasonsData] = useState(null);
@@ -23,7 +24,7 @@ export default function SeasonIndex() {
         </div>
       )}
       {seasonsData && (
-        <div className='container'>
+        <div className='container season-index-container'>
           <h1>Seasons Index</h1>
           <table>
             <thead>

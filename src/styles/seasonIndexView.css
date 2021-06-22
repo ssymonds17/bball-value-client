@@ -1,0 +1,16 @@
+.season-index-container {
+  width: 80vw;
+}
+
+@media screen and (max-width: 1490px) {
+  .season-index-container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .season-index-container table {
+    display: block;
+    overflow: auto;
+  }
+}
