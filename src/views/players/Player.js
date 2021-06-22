@@ -38,7 +38,7 @@ export default function Player() {
   return (
     <div>
       {!playerRS && !playerPO && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

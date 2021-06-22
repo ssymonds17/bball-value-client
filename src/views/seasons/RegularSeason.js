@@ -48,7 +48,7 @@ export default function RegularSeason() {
   return (
     <div>
       {!seasonData && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

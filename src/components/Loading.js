@@ -8,5 +8,9 @@ const override = css`
 `;
 
 export default function Loading() {
-  return <DotLoader css={override} color={'#3A8340'} size={150} />;
+  return (
+    <div className='loading'>
+      <DotLoader css={override} color={'#3A8340'} size={150} />
+    </div>
+  );
 }

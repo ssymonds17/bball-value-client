@@ -1,9 +1,12 @@
 import React from 'react';
+import Loading from '../components/Loading';
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className='container'>
+      <div className='loading-parent'>
+        <Loading />
+      </div>
     </div>
   );
 }

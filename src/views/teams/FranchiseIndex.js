@@ -32,7 +32,7 @@ export default function FranchiseIndex() {
   return (
     <div className='franchise-index-container'>
       {isCurrentLoading && isDefunctLoading && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

@@ -21,7 +21,7 @@ export default function GreatestPlayers() {
   return (
     <div>
       {isLoading && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

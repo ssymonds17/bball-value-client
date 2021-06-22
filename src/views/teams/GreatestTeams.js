@@ -21,7 +21,7 @@ export default function GreatestTeams() {
   return (
     <div>
       {isLoading && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

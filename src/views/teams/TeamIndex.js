@@ -28,7 +28,7 @@ export default function TeamIndex() {
   return (
     <div>
       {!teamSeasons && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

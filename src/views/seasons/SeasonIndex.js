@@ -19,7 +19,7 @@ export default function SeasonIndex() {
   return (
     <div>
       {!seasonsData && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

@@ -30,7 +30,7 @@ export default function PlayerIndex() {
   return (
     <div>
       {isLoading && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

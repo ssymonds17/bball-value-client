@@ -72,7 +72,7 @@ export default function Team() {
   return (
     <div>
       {!team && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}

@@ -22,7 +22,7 @@ export default function GreatestOverall() {
   return (
     <div>
       {isLoading && (
-        <div>
+        <div className='loading-parent'>
           <Loading />
         </div>
       )}
