@@ -1,3 +1,7 @@
+.player-container {
+  width: 70vw;
+}
+
 .player-totals-container {
   display: flex;
   border-bottom: 1px solid black;
@@ -8,4 +12,14 @@
 }
 .player-totals-container h2 + h2 {
   margin-left: 3rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .player-container {
+    width: 90vw;
+  }
+  .player-container table {
+    display: block;
+    overflow: auto;
+  }
 }

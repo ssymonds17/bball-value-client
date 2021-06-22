@@ -43,7 +43,7 @@ export default function Player() {
         </div>
       )}
       {playerRS && playerPO && (
-        <div className='container'>
+        <div className='container player-container'>
           <header className='player-header'>
             <h1>{playerName}</h1>
             <section className='player-totals-container'>
