@@ -1,0 +1,19 @@
+.g-players-container {
+  width: 70vw;
+}
+
+@media screen and (max-width: 900px) {
+  .g-players-container {
+    width: 90vw;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .g-players-container {
+    width: 95vw;
+  }
+  .g-players-container table {
+    display: block;
+    overflow: auto;
+  }
+}
