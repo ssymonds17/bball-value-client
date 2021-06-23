@@ -28,6 +28,35 @@ export default function Navbar() {
           <button className='nav-btn'>Greatest Seasons</button>
         </Link>
       </div>
+      <nav>
+        <Link to={`/`}>
+          <button className='home-brand'>NBA Value Index</button>
+        </Link>
+        <input type='checkbox' id='menu-toggle' />
+        <label htmlFor='menu-toggle' className='hamburger'>
+          |||
+        </label>
+        <div className='nav-links'>
+          <Link to={`/players`}>
+            <button className='nav-btn-drop'>Players</button>
+          </Link>
+          <Link to={`/teams`}>
+            <button className='nav-btn-drop'>Teams</button>
+          </Link>
+          <Link to={`/seasons`}>
+            <button className='nav-btn-drop'>Seasons</button>
+          </Link>
+          <Link to={`/rankings/players`}>
+            <button className='nav-btn-drop'>Greatest Players</button>
+          </Link>
+          <Link to={`/rankings/teams`}>
+            <button className='nav-btn-drop'>Greatest Teams</button>
+          </Link>
+          <Link to={`/rankings/seasons/overall`}>
+            <button className='nav-btn-drop'>Greatest Seasons</button>
+          </Link>
+        </div>
+      </nav>
     </div>
   );
 }
