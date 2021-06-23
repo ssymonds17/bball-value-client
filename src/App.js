@@ -17,6 +17,7 @@ import GreatestRS from './views/greatest-seasons/GreatestRS';
 import GreatestPlayoffs from './views/greatest-seasons/GreatestPlayoffs';
 import Navbar from './components/Navbar';
 import NotFound from './views/NotFound';
+import Footer from './components/Footer';
 
 import './App.css';
 
@@ -81,6 +82,7 @@ function App() {
         />
         <Route component={NotFound} />
       </Switch>
+      <Footer />
     </React.Fragment>
   );
 }

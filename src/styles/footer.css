@@ -1,0 +1,35 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  height: 3.5rem;
+  background-color: #3a8340;
+  color: white;
+}
+
+.footer-content-container {
+  display: flex;
+  justify-content: space-between;
+  width: 70vw;
+}
+
+.footer-left-content {
+  padding-top: 1.2rem;
+  padding-left: 1rem;
+}
+
+.footer-right-content {
+  padding-top: 1.2rem;
+  padding-right: 1rem;
+}
+
+.footer-left-content p,
+.footer-right-content p {
+  margin: 0;
+}
+
+@media screen and (max-width: 450px) {
+  .footer-left-content p,
+  .footer-right-content p {
+    font-size: 12px;
+  }
+}
