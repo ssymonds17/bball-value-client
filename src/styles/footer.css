@@ -1,4 +1,7 @@
 .footer {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
   height: 3.5rem;
