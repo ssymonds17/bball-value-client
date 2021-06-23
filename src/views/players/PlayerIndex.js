@@ -44,7 +44,7 @@ export default function PlayerIndex() {
               type='text'
               name='playerSearch'
               id='playerSearch'
-              autocomplete='off'
+              autoComplete='off'
               onChange={(e) => setUserInput(e.target.value)}
             ></input>
           </header>
