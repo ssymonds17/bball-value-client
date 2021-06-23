@@ -13,11 +13,11 @@
   .franchise-list {
     width: 80vw;
   }
-  .current {
+  .container.current {
     padding-bottom: 2rem;
   }
-  .defunct {
+  .container.defunct {
     border-top: 1px solid black;
-    padding-top: 1rem !important;
+    padding-top: 1rem;
   }
 }

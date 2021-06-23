@@ -36,8 +36,6 @@ export default function Team() {
     const franchiseCode = franchise[0].franchise_code;
     // Get the team data for that year using franchise code and year
     const newTeam = await fetchTeamData(franchiseCode, year);
-    console.log(newTeam);
-
     // Get the player records for that team season
     const teamPlayers = await fetchTeamPlayers(franchiseCode, year);
     const franchiseYears = await fetchFranchiseYears(franchiseCode);
