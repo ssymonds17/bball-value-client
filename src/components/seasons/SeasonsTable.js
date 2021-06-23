@@ -55,7 +55,9 @@ export default function SeasonsTable({ playerList, greatest, seasonType }) {
                     </Link>
                   </td>
                 )}
-                <td>{Number(player.rs_score).toFixed(2)}</td>
+                <td className='score-column'>
+                  {Number(player.rs_score).toFixed(2)}
+                </td>
                 <td>
                   <Link to={`/teams/${player.rs_tm}/${player.year}`}>
                     {player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}
@@ -104,7 +106,9 @@ export default function SeasonsTable({ playerList, greatest, seasonType }) {
                     </Link>
                   </td>
                 )}
-                <td>{Number(player.po_score).toFixed(2)}</td>
+                <td className='score-column'>
+                  {Number(player.po_score).toFixed(2)}
+                </td>
                 <td>
                   <Link to={`/teams/${player.po_tm}/${player.year}`}>
                     {player.po_tm}

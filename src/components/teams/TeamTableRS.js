@@ -25,7 +25,9 @@ export default function TeamTableRS({ playersRS }) {
                   {player.player_name}
                 </Link>
               </td>
-              <td>{Number(player.rs_score).toFixed(2)}</td>
+              <td className='score-column'>
+                {Number(player.rs_score).toFixed(2)}
+              </td>
               <td>
                 <Link
                   to={`/seasons/regularseason/${player.league}/${player.year}`}

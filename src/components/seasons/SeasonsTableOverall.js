@@ -6,6 +6,22 @@ export default function SeasonsTableOverall({ playerList, greatest }) {
   return (
     <table>
       <thead>
+        {greatest && (
+          <tr>
+            <th colSpan='8'></th>
+            <th colSpan='4'>Regular Season</th>
+            <th colSpan='4'>Playoffs</th>
+            <th colSpan='2'></th>
+          </tr>
+        )}
+        {!greatest && (
+          <tr>
+            <th colSpan='6'></th>
+            <th colSpan='4'>Regular Season</th>
+            <th colSpan='4'>Playoffs</th>
+            <th colSpan='2'></th>
+          </tr>
+        )}
         <tr>
           <th>Rank</th>
           <th>Name</th>
@@ -53,7 +69,9 @@ export default function SeasonsTableOverall({ playerList, greatest }) {
                   </Link>
                 </td>
               )}
-              <td>{Number(player.season_value).toFixed(2)}</td>
+              <td className='score-column'>
+                {Number(player.season_value).toFixed(2)}
+              </td>
               <td>
                 <Link to={`/teams/${player.rs_tm}/${player.year}`}>
                   {player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}
@@ -61,11 +79,15 @@ export default function SeasonsTableOverall({ playerList, greatest }) {
               </td>
               <td>{player.rs_age}</td>
               <td>{player.rs_pos}</td>
-              <td>{Number(player.rs_score).toFixed(2)}</td>
+              <td className='score-column'>
+                {Number(player.rs_score).toFixed(2)}
+              </td>
               <td>{player.rs_g}</td>
               <td>{player.rs_mp}</td>
               <td>{player.rs_val_perc}</td>
-              <td>{Number(player.po_score).toFixed(2)}</td>
+              <td className='score-column'>
+                {Number(player.po_score).toFixed(2)}
+              </td>
               <td>{player.po_g}</td>
               <td>{player.po_mp}</td>
               <td>{player.po_val_perc}</td>

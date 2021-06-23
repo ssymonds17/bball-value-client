@@ -9,6 +9,7 @@ td {
   text-align: center;
   white-space: nowrap;
   padding: 0.2rem;
+  font-weight: 300;
 }
 
 /* Set borders for th and td to be separate */
@@ -41,4 +42,8 @@ tr:hover a:visited {
 }
 td a:visited {
   color: blue;
+}
+
+.score-column {
+  font-weight: 500;
 }

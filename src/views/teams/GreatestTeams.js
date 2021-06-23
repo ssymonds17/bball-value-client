@@ -54,7 +54,9 @@ export default function GreatestTeams() {
                         {team.year}
                       </Link>
                     </td>
-                    <td>{Number(team.total).toFixed(2)}</td>
+                    <td className='score-column'>
+                      {Number(team.total).toFixed(2)}
+                    </td>
                     <td>{team.record}</td>
                     <td>{team.result}</td>
                   </tr>

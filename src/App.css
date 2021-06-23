@@ -25,6 +25,13 @@ h3 {
   font-size: 1.5rem;
 }
 
+h1,
+h2,
+h3,
+a {
+  font-weight: 300;
+}
+
 /* Styles for Loading component and its parent element */
 
 .loading-parent {

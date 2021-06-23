@@ -51,7 +51,9 @@ export default function GreatestPlayers() {
                         {player.full_name}
                       </Link>
                     </td>
-                    <td>{Number(player.value).toFixed(2)}</td>
+                    <td className='score-column'>
+                      {Number(player.value).toFixed(2)}
+                    </td>
                     <td>{Number(player.total).toFixed(2)}</td>
                     <td>{Number(player.peak_3).toFixed(2)}</td>
                     <td>{Number(player.consec_5).toFixed(2)}</td>

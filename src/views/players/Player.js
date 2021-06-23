@@ -80,7 +80,9 @@ export default function Player() {
                         {season.year}
                       </Link>
                     </td>
-                    <td>{Number(season.rs_score).toFixed(2)}</td>
+                    <td className='score-column'>
+                      {Number(season.rs_score).toFixed(2)}
+                    </td>
                     <td>
                       <Link
                         to={`/seasons/regularseason/${season.league}/${season.year}`}
@@ -135,7 +137,9 @@ export default function Player() {
                             {season.year}
                           </Link>
                         </td>
-                        <td>{Number(season.po_score).toFixed(2)}</td>
+                        <td className='score-column'>
+                          {Number(season.po_score).toFixed(2)}
+                        </td>
                         <td>
                           <Link
                             to={`/seasons/playoffs/${season.league}/${season.year}`}
