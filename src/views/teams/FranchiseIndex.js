@@ -37,7 +37,7 @@ export default function FranchiseIndex() {
         </div>
       )}
       {!isCurrentLoading && (
-        <div className='container franchise-list'>
+        <div className='container franchise-list current'>
           <h1>Current Franchises</h1>
           <FranchiseIndexTable franchiseList={currentFranchises} />
         </div>
