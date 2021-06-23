@@ -63,7 +63,7 @@ export default function Player() {
                 <th>Team</th>
                 <th>Pos</th>
                 <th>G</th>
-                <th>MPG</th>
+                <th>MP</th>
                 <th>Val%</th>
                 <th>Tm Record</th>
                 <th>Tm Result</th>
@@ -119,7 +119,7 @@ export default function Player() {
                     <th>Team</th>
                     <th>Pos</th>
                     <th>G</th>
-                    <th>MPG</th>
+                    <th>MP</th>
                     <th>Val%</th>
                     <th>Tm Result</th>
                   </tr>

@@ -12,7 +12,7 @@ export default function TeamTableRS({ playersPO }) {
           <th>Age</th>
           <th>Pos</th>
           <th>G</th>
-          <th>MPG</th>
+          <th>MP</th>
           <th>Val%</th>
         </tr>
       </thead>
