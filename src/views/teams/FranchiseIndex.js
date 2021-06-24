@@ -30,24 +30,26 @@ export default function FranchiseIndex() {
   }, []);
 
   return (
-    <div className='franchise-index-container'>
+    <div>
       {isCurrentLoading && isDefunctLoading && (
         <div className='loading-parent'>
           <Loading />
         </div>
       )}
-      {!isCurrentLoading && (
-        <div className='container franchise-list current'>
-          <h1>Current Franchises</h1>
-          <FranchiseIndexTable franchiseList={currentFranchises} />
-        </div>
-      )}
-      {!isDefunctLoading && (
-        <div className='container franchise-list defunct'>
-          <h1>Defunct Franchises</h1>
-          <FranchiseIndexTable franchiseList={defunctFranchises} />
-        </div>
-      )}
+      <div className='franchise-index-container'>
+        {!isCurrentLoading && (
+          <div className='container franchise-list current'>
+            <h1>Current Franchises</h1>
+            <FranchiseIndexTable franchiseList={currentFranchises} />
+          </div>
+        )}
+        {!isDefunctLoading && (
+          <div className='container franchise-list defunct'>
+            <h1>Defunct Franchises</h1>
+            <FranchiseIndexTable franchiseList={defunctFranchises} />
+          </div>
+        )}
+      </div>
     </div>
   );
 }
