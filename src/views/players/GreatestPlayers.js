@@ -37,7 +37,7 @@ export default function GreatestPlayers() {
                 <th>Total</th>
                 <th>Peak 3</th>
                 <th>Peak 5</th>
-                <th>Season Avg.</th>
+                <th>82 Gm Avg.</th>
                 <th>Years</th>
               </tr>
             </thead>

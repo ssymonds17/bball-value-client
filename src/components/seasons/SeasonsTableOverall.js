@@ -73,9 +73,13 @@ export default function SeasonsTableOverall({ playerList, greatest }) {
                 {Number(player.season_value).toFixed(2)}
               </td>
               <td>
-                <Link to={`/teams/${player.rs_tm}/${player.year}`}>
-                  {player.rs_tm === 'Z-TOT' ? 'TOT' : player.rs_tm}
-                </Link>
+                {player.rs_tm === 'Z-TOT' ? (
+                  'TOT'
+                ) : (
+                  <Link to={`/teams/${player.rs_tm}/${player.year}`}>
+                    {player.rs_tm}
+                  </Link>
+                )}
               </td>
               <td>{player.rs_age}</td>
               <td>{player.rs_pos}</td>
