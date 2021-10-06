@@ -31,7 +31,7 @@ Begin the application by running the following code:
 npm start
 ```
 
-This launches DevTools on port 3000. 
+This launches the application on port 3000. 
    
    [server side code]: <https://github.com/ssymonds17/bball-value-server/>
    [live version]: <https://bball-value.netlify.app/>
